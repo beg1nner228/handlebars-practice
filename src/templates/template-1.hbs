@@ -1,1 +1,67 @@
-  
+<div style="font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; background-color: #f7f7f7; border-radius: 8px;">
+    
+    <h1 style="color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px;">{{pageTitle}}</h1>
+    
+    <div style="background-color: #fff; padding: 15px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h2 style="color: #007bff; margin-top: 0;">Привет, {{currentUser.name}}</h2>
+        
+        {{#if currentUser.isSubscriber}}
+            <p style="color: #28a745; font-weight: bold;">✅ Полный доступ к премиум-контенту</p>
+        {{/if}}
+
+        {{#unless currentUser.isSubscriber}}
+            <button style="background-color: #ffc107; color: #333; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer;">
+                [Оформить подписку VIP]
+            </button>
+        {{/unless}}
+        
+        {{#if currentUser.lastLoginDaysAgo}}
+            <p style="font-size: 0.9em; color: #6c757d;">
+                Последний визит: {{currentUser.lastLoginDaysAgo}} дн. назад.
+            </p>
+        {{/if}}
+    </div>
+
+    <hr style="margin: 30px 0; border: 0; border-top: 1px dashed #ccc;">
+
+    <div class="articles-list">
+        <h2 style="color: #333;">Актуальные статьи</h2>
+        
+        {{#each articles}}
+            <article style="background-color: #fff; margin-bottom: 20px; padding: 20px; border-radius: 6px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+                
+                <h3 style="color: #495057; margin-top: 0;">
+                    {{title}}
+                    {{#if isHot}}
+                        <span style="background-color: #dc3545; color: white; padding: 3px 8px; font-size: 0.8em; border-radius: 3px; margin-left: 10px;">
+                            🔥 HOT!
+                        </span>
+                    {{/if}}
+                </h3>
+                
+                <p style="font-size: 0.95em; color: #5a6268;">
+                    Автор: **{{author}}** | Категория: *{{category}}*
+                </p>
+                
+                {{#if commentsCount}}
+                    <p style="color: #007bff; font-weight: 500;">
+                        🗨️ Комментариев: {{commentsCount}}
+                    </p>
+                {{else}}
+                    <p style="color: #6c757d;">
+                        Комментариев пока нет. Будьте первым!
+                    </p>
+                {{/if}}
+
+                <div style="margin-top: 15px;">
+                    <strong style="color: #495057;">Теги:</strong>
+                    {{#each tags}}
+                        <span style="display: inline-block; background-color: #e9ecef; color: #495057; padding: 4px 8px; font-size: 0.8em; border-radius: 15px; margin-right: 5px;">
+                            #{{this}}
+                        </span>
+                    {{/each}}
+                </div>
+            </article>
+        {{/each}}
+    </div>
+</div>

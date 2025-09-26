@@ -1,0 +1,26 @@
+{
+  "pageTitle": "Ежедневный Обзор Новостей",
+  "currentUser": {
+    "name": "Александр В.",
+    "isSubscriber": true,
+    "lastLoginDaysAgo": 2
+  },
+  "articles": [
+    {
+      "title": "Новые тренды в IT: куда движется разработка",
+      "author": "Мария С.",
+      "category": "Технологии",
+      "isHot": true,
+      "commentsCount": 14,
+      "tags": ["IT", "Dev", "Future"]
+    },
+    {
+      "title": "Экологическая инициатива: как помочь планете",
+      "author": "Игорь К.",
+      "category": "Экология",
+      "isHot": false,
+      "commentsCount": 0,
+      "tags": ["Nature", "Eco"]
+    }
+  ]
+}
